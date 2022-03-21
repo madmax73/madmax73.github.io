@@ -17,14 +17,7 @@ window.addEventListener('load', () => {
                     console.log(data)
                 })
         });
-        fetch(api)
-            .then(response => {
-                return response.json();
-
-            })
-            .then(data => {
-                console.log(data)
-            })
+      
     } else {
         h1.textContent = "please enable geolocation";
     }
