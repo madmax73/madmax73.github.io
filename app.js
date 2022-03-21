@@ -1,6 +1,9 @@
 window.addEventListener('load', () => {
     let long;
     let lat;
+    let temperatureDescription = document.querySelector('.temperature-description');
+    let temperatureDegree = document.querySelector('.temperature-degree');
+    let locationTimezone = document.querySelector('.location-timezone');
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
@@ -14,10 +17,14 @@ window.addEventListener('load', () => {
 
                 })
                 .then(data => {
-                    console.log(data)
+                    console.log(data);
+                    const { temp } = data.main;
+                    const { description } = data.weather[0];
+                    //set DOM Elements from the API
+                    temperatureDegree.textContent = temp;
                 })
         });
-      
+
     } else {
         h1.textContent = "please enable geolocation";
     }
